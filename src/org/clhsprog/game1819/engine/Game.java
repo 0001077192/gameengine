@@ -104,6 +104,16 @@ public class Game
         throw new IllegalArgumentException( "Nonexistant or unregistered room: \"" + roomName + "\"" );
     }
     
+    
+    public static Room getRoom( String roomName )
+    {
+        Game.ensureSingleton();
+        for( Room room: rooms )
+            if( room.NAME.equals( roomName ) )
+                return room;
+        return null;
+    }
+    
     public static void registerRoom( Room r )
     {
         for( Room room: rooms )
